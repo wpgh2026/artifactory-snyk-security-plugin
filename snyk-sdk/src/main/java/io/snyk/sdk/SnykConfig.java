@@ -78,6 +78,16 @@ public class SnykConfig {
       return this;
     }
 
+    public Builder setHttpProxyUsername(String httpProxyUsername) {
+      this.httpProxyUsername = httpProxyUsername;
+      return this;
+    }
+
+    public Builder setHttpProxyPassword(String httpProxyPassword) {
+      this.httpProxyPassword = httpProxyPassword;
+      return this;
+    }
+
     public Builder setHttpProxyHost(String httpProxyHost) {
       this.httpProxyHost = httpProxyHost;
       return this;
@@ -102,6 +112,8 @@ public class SnykConfig {
         sslCertificatePath,
         httpProxyHost,
         httpProxyPort,
+        httpProxyUsername,
+        httpProxyPassword,
         timeout
       );
     }
