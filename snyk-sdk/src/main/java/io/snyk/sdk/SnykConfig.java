@@ -10,6 +10,8 @@ public class SnykConfig {
   public final String sslCertificatePath;
   public final String httpProxyHost;
   public final Integer httpProxyPort;
+  public final String httpProxyUsername;
+  public final String httpProxyPassword;
   public final Duration timeout;
 
   private SnykConfig(
@@ -20,6 +22,8 @@ public class SnykConfig {
     String sslCertificatePath,
     String httpProxyHost,
     Integer httpProxyPort,
+    String httpProxyusername,
+    String httpProxyPassword,
     Duration timeout
   ) {
     this.baseUrl = baseUrl;
@@ -29,6 +33,8 @@ public class SnykConfig {
     this.sslCertificatePath = sslCertificatePath;
     this.httpProxyHost = httpProxyHost;
     this.httpProxyPort = httpProxyPort;
+    this.httpProxyUsername = httpProxyUsername;
+    this.httpProxyPassword = httpProxyPassword;
     this.timeout = timeout;
   }
 
@@ -48,6 +54,8 @@ public class SnykConfig {
     private String sslCertificatePath = "";
     private String httpProxyHost = "";
     private Integer httpProxyPort = 8080;
+    private String httpProxyUsername = "";
+    private String httpProxyPassword = "";
     private Duration timeout = Duration.ofMillis(60_000);
 
     private Builder() {
