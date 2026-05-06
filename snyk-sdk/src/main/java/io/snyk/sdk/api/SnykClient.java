@@ -8,10 +8,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
-import javax.net.Authenticator;
-import javax.net.PasswordAuthentication;
 import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.net.InetSocketAddress;
 import java.net.ProxySelector;
 import java.net.URLEncoder;
