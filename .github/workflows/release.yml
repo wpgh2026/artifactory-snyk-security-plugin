@@ -41,9 +41,9 @@ jobs:
           sha256sum artifactory-snyk-security-plugin-${{ steps.metadata.outputs.tag }}.zip > artifactory-snyk-security-plugin-${{ steps.metadata.outputs.tag }}.zip.sha256
 
       - name: Create GitHub release
-        uses: softprops/action-gh-release@v1
+        uses: actions/upload-artifact@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          draft: true
-          files: distribution/target/*
+          name: production-files
+          path: distribution/target/*
