@@ -56,10 +56,11 @@ public class SnykClient {
           protected PasswordAuthentication getPasswordAuthentication() {
             if (getRequestorType() == RequestorType.PROXY) {
               return new PasswordAuthentication(config.httpProxyUsername, config.httpProxyPassword.toCharArray());
-            
-            return null;
             }
-          });
+           
+            return null;
+          }
+        });
       }
     }
 
