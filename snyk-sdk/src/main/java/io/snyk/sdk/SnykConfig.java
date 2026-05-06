@@ -22,7 +22,7 @@ public class SnykConfig {
     String sslCertificatePath,
     String httpProxyHost,
     Integer httpProxyPort,
-    String httpProxyusername,
+    String httpProxyUsername,
     String httpProxyPassword,
     Duration timeout
   ) {
