@@ -10,6 +10,8 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import java.io.IOException;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.net.InetSocketAddress;
 import java.net.ProxySelector;
 import java.net.URLEncoder;
@@ -49,6 +51,19 @@ public class SnykClient {
     if (!config.httpProxyHost.isBlank()) {
       builder.proxy(ProxySelector.of(new InetSocketAddress(config.httpProxyHost, config.httpProxyPort)));
       LOG.info("added proxy with host: {}, port: {}", config.httpProxyHost, config.httpProxyPort);
+
+      if (config.httpProxyUsername != null && !config.httpProxyUsername.isBlank() && config.httpProxyPassword != null && !config.httpProxyPassword.isBlank()) {
+        builder.authenticator(new Authenticator() {
+          @Override
+          protected PasswordAuthentication getPasswordAuthentication() {
+            if (getRequestorType() == RequestorType.PROXY) {
+              return new PasswordAuthentication(config.httpProxyUsername, config.httpProxyPassword.toCharArray());
+            }
+           
+            return null;
+          }
+        });
+      }
     }
 
     httpClient = builder.build();

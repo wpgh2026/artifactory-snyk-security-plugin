@@ -190,6 +190,8 @@ public class SnykPlugin {
     String sslCertificatePath = configurationModule.getPropertyOrDefault(API_SSL_CERTIFICATE_PATH);
     String httpProxyHost = configurationModule.getPropertyOrDefault(HTTP_PROXY_HOST);
     Integer httpProxyPort = Integer.parseInt(configurationModule.getPropertyOrDefault(HTTP_PROXY_PORT));
+    String httpProxyUsername = configurationModule.getPropertyOrDefault(HTTP_PROXY_USERNAME);
+    String httpProxyPassword = configurationModule.getPropertyOrDefault(HTTP_PROXY_PASSWORD);
     Duration timeout = Duration.ofMillis(Integer.parseInt(configurationModule.getPropertyOrDefault(API_TIMEOUT)));
 
     var config = SnykConfig.newBuilder()
@@ -200,6 +202,8 @@ public class SnykPlugin {
       .setSslCertificatePath(sslCertificatePath)
       .setHttpProxyHost(httpProxyHost)
       .setHttpProxyPort(httpProxyPort)
+      .setHttpProxyUsername(httpProxyUsername)
+      .setHttpProxyPassword(httpProxyPassword)
       .setTimeout(timeout)
       .build();
 
